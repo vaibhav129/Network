@@ -1,0 +1,38 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+{% block script %}
+    <script type="text/javascript" src="{% static 'network/base.js' %}"></script>
+{% endblock %}
+
+<h1>FOLLOWERS POST</h1>
+<br>
+<div class="container">
+        {% if message %}
+        <h4 class="message">{{message}}</h4>
+        {% endif %}
+
+        {% for post in fpost %}
+                <div class="border border-secondary rounded p-3 mt-2">
+<a class="nav-link" href="{% url 'profile' post.user  %}"><strong>{{ post.user }}</strong></a>
+
+                <p id="post-{{post.id}}">{{ post.content }}</p>
+ <button type="button"  style="background-color:white; border-color: red;" id="like-btn-{{post.id}}" onclick="like('{{ post.id }}')">like</button>
+                <div id="like-count-{{post.id}}" >{{post.likes}}</div>
+                <p>{{ post.time }}</p>
+            </div>
+</div>
+{% endfor %}
+    {% if fpost.has_previous %}
+<a href="{% url 'followpost' %}?page={{fpost.previous_page_number}}">previous</a>
+{% endif %}
+{% if fpost.has_next %}
+<a href="{% url 'followpost' %}?page={{fpost.next_page_number}}">next</a>
+{% endif %}
+                </div>
+        </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All post</title>
+</head>
+<body>
+{% for i in po %}
+<p>{{i.content}}</p>
+<p>{{i.user}}</p>
+ <button class="btn btn-success" type="submit" name="likeinfo" value="{{post.id}}">like</button> - {{i.tolike}} likes
+{% endfor %}
+</body>
+</html>

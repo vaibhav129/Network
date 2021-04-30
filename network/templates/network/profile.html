@@ -1,0 +1,41 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+{% block script %}
+    <script type="text/javascript" src="{% static 'network/base.js' %}"></script>
+{% endblock %}
+<h1>Profile</h1>
+{% if  user.username != username %}
+        {% if is_follower %}
+            <a href="{% url 'unfollow' target=username %}">Unfollow</a>
+        {% else %}
+            <a href="{% url 'follow' target=username %}">Follow</a>
+        {% endif %}
+    {% endif %}
+
+    <h4>Followers -{{ followers.count }}</h4>
+    <h4>Following -{{ following.count }}</h4>
+{% for i in posts %}
+<div class="border border-secondary rounded p-3 mt-2">
+               <strong>{{i.user}}</strong>
+                <p id="post-{{i.id}}">{{ i.content }}</p>
+                {% if  i.username == username %}
+                    <div id="edit" onclick="edit('{{ i.id }}')" class="text-primary">Edit</div>
+                {% else %}
+                {% endif %}
+                <textarea class="form-control mb-2" id="edit-box-{{i.id}}" name="edit-box" style="display:none;"></textarea>
+                <button id="edit-btn-{{i.id}}" class="btn btn-primary" style="display:none;">Save</button>
+ <button type="button"  style="background-color:white; border-color: red;" id="like-btn-{{i.id}}" onclick="like('{{ i.id }}')">like</button>
+                <div id="like-count-{{i.id}}" >{{i.likes}}</div>
+                <p>{{ i.time }}</p>
+</div>
+{% endfor %}
+ {% if posts.has_previous %}
+<a href="{% url 'profile' username %}?page={{posts.previous_page_number}}">previous</a>
+{% endif %}
+{% if posts.has_next %}
+<a href="{% url 'profile' username %}?page={{post.next_page_number}}">next</a>
+{% endif %}
+{% endblock %}
