@@ -5,7 +5,7 @@ Project video :[youtube](https://www.youtube.com/watch?v=GSY0CIAYL8E&list=LLX-5P
 
 ### Description:
 
-Design of Social Network website with Django
+Design of Twitter Like Social Network website with Django
 
 
 
