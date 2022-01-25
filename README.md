@@ -1,6 +1,6 @@
 ### Project: Network
 
-Project video :[youtube](https://www.youtube.com/watch?v=GSY0CIAYL8E&list=LLX-5PnWWxazxQJNUsFYqwow&index=9)
+Project video -[YOUTUBE](https://www.youtube.com/watch?v=GSY0CIAYL8E&list=LLX-5PnWWxazxQJNUsFYqwow&index=9)
 
 
 ### Description:
