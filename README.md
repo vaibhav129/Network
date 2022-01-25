@@ -24,7 +24,7 @@ Design of Twitter Like Social Network website with Django
 # How to run this application:
 ```
    # clone repository
-      git clone https://github.com/saarikabhasi/cs50W-network.git
+      git clone https://github.com/vaibhav129/Network
       
     # Create a virtualenv(optional)
       python3 -m venv venv  
